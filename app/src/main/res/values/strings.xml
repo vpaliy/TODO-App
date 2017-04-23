@@ -3,4 +3,8 @@
 
     <string name="errorTaskMessage">Error has occurred</string>
     <string name="emptyTaskMessage">Empty task message</string>
+    <string name="undoTaskDismissing">UNDO</string>
+    <string name="submitButton">Submit</string>
+
+    <string name="taskTitle">What is about to be done?</string>
 </resources>

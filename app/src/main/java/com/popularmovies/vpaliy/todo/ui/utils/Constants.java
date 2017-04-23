@@ -8,6 +8,6 @@ public final class Constants {
 
     public static final String FRAGMENT_TODO_TAG="fragmentTODOTag";
     public static final String FRAGMENT_REGISTER_TAG="fragmentRegisterTag";
-
+    public static final String INPUT_WRAPPER="inputWrapper";
 
 }

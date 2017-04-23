@@ -69,7 +69,6 @@ public class TODOFragment extends Fragment
                     LinearLayoutManager.VERTICAL,false));
             recyclerView.addItemDecoration(new DividerItemDecoration(getContext(),LinearLayoutManager.VERTICAL));
             recyclerView.setAdapter(adapter);
-
             new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(ItemTouchHelper.LEFT,ItemTouchHelper.RIGHT) {
                 @Override
                 public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
@@ -91,7 +90,7 @@ public class TODOFragment extends Fragment
                                     }
                                 }
                             })
-                            .setAction("UNDO", v->adapter.addTask(position,removedTask))
+                            .setAction(R.string.undoTaskDismissing,v->adapter.addTask(position,removedTask))
                             .show();
                 }
             }).attachToRecyclerView(recyclerView);
