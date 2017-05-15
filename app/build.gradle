@@ -71,6 +71,8 @@ dependencies {
     annotationProcessor libs.Dagger2Compiler
     annotationProcessor libs.butterKnifeCompiler
     provided libs.javaxAnnotation
+    compile 'com.jjoe64:graphview:4.2.1'
+    compile 'com.github.PhilJay:MPAndroidChart:v3.0.2'
 
     /* Testing Libraries */
     testCompile testLibs.mockito

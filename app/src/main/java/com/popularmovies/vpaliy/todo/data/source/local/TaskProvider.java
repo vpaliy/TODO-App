@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+
 public class TaskProvider extends ContentProvider {
 
     private SQLiteOpenHelper openHelper;
