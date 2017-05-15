@@ -1,17 +1,15 @@
 package com.popularmovies.vpaliy.todo.domain;
 
-import com.popularmovies.vpaliy.todo.domain.model.TODOTask;
-
+import com.popularmovies.vpaliy.todo.domain.model.Task;
 import java.util.List;
-
 import rx.Observable;
 
 public interface IRepository {
 
-    Observable<List<TODOTask>> getTaskList();
-    Observable<TODOTask> findTaskById(int taskId);
+    Observable<List<Task>> getTaskList();
+    Observable<Task> findTaskById(int taskId);
 
     void deleteTask(int taskId);
-    void insertTask(TODOTask task);
-    void updateTask(TODOTask task);
+    void insertTask(Task task);
+    void updateTask(Task task);
 }

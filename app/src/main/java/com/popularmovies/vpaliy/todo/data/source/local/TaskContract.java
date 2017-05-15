@@ -7,11 +7,41 @@ import android.provider.BaseColumns;
 
 public class TaskContract {
 
+    interface CategoryColumns {
+
+    }
+
+    interface TaskColumns{
+
+    }
+
+    interface GoalColumns{
+
+    }
+
+    interface TaskNoteColumns{
+
+    }
+
+    interface ReviewColumns {
+
+    }
+
+
+    interface PlanColumns {
+
+    }
+
+
     public static final String CONTENT_AUTHORITY="com.popularmovies.vpaliy.todo";
     public static final Uri BASE_CONTENT_URI=Uri.parse("content://"+CONTENT_AUTHORITY);
 
-
-    public static final String PATH_TASKS="tasks";
+    public static final String PATH_TASK="tasks";
+    public static final String PATH_CATEGORY="category";
+    public static final String PATH_PRIORITY="priority";
+    public static final String PATH_TASK_CYCLE="task_cycle";
+    public static final String PATH_TASK_NOTE="task_note";
+    public static final String PATH_REVIEW="review";
 
 
     private TaskContract(){
@@ -20,12 +50,12 @@ public class TaskContract {
 
     public static class TaskEntry implements BaseColumns{
 
-        public static final Uri CONTENT_URI=BASE_CONTENT_URI.buildUpon().appendPath(PATH_TASKS).build();
+        public static final Uri CONTENT_URI=BASE_CONTENT_URI.buildUpon().appendPath(PATH_TASK).build();
 
         public static final String CONTENT_DIR_TYPE =
-                ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_TASKS;
+                ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_TASK;
         public static final String CONTENT_ITEM_TYPE =
-                ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_TASKS;
+                ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_TASK;
 
         public static final String TABLE_NAME="tasks";
         public static final String COLUMN_TITLE="title";
