@@ -7,20 +7,34 @@ import android.provider.BaseColumns;
 
 public class TaskContract {
 
-    interface CategoryColumns {
 
+    interface CategoryColumns {
+        String CATEGORY_ID="category_id";
+        String CATEGORY_NAME="category_name";
     }
 
     interface TaskColumns{
-
+        String TASK_ID="task_id";
+        String TASK_HEADLINE="task_headline";
+        String TASK_CATEGORY_ID="task_category_id";
+        String TASK_DUE_DATE="task_due_date";
+        String TASK_CYCLE_ID="task_cycle_id";
+        String TASK_PRIORITY_ID="task_priority_id";
+        String TASK_IS_DONE="task_is_done";
+        String TASK_NOTE_ID="task_note_id";
     }
 
-    interface GoalColumns{
+    interface TodoItemColumns {
+        String TODO_ITEM_PLAN_ID="todo_item_plan_id";
+    }
 
+
+    interface GoalColumns{
+        String GOAL_PLAN_ID="plan_id";
     }
 
     interface TaskNoteColumns{
-
+        String TASK_ID="task_id";
     }
 
     interface ReviewColumns {
@@ -29,7 +43,7 @@ public class TaskContract {
 
 
     interface PlanColumns {
-
+        String PLAN_ID="plan_id";
     }
 
 
@@ -48,34 +62,5 @@ public class TaskContract {
         throw new UnsupportedOperationException();
     }
 
-    public static class TaskEntry implements BaseColumns{
 
-        public static final Uri CONTENT_URI=BASE_CONTENT_URI.buildUpon().appendPath(PATH_TASK).build();
-
-        public static final String CONTENT_DIR_TYPE =
-                ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_TASK;
-        public static final String CONTENT_ITEM_TYPE =
-                ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_TASK;
-
-        public static final String TABLE_NAME="tasks";
-        public static final String COLUMN_TITLE="title";
-        public static final String COLUMN_DESCRIPTION="description";
-        public static final String COLUMN_DEADLINE="deadline";
-        public static final String COLUMN_PRIORITY="priority";
-        public static final String COLUMN_FINISHED="isFinished";
-
-        public static final String SQL_CREATE_TABLE=
-                "CREATE TABLE "+TABLE_NAME+" ("+
-                        _ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+
-                        COLUMN_TITLE+" TEXT NOT NULL, "+
-                        COLUMN_DESCRIPTION+ " TEXT , "+
-                        COLUMN_PRIORITY+" STRING NOT NULL, "+
-                        COLUMN_FINISHED+" BOOLEAN NOT NULL, "+
-                        COLUMN_DEADLINE+" STRING"+");";
-
-        public static final String[] COLUMNS={_ID,COLUMN_TITLE,COLUMN_DESCRIPTION,
-                COLUMN_PRIORITY,COLUMN_FINISHED,COLUMN_DESCRIPTION};
-
-
-    }
 }
