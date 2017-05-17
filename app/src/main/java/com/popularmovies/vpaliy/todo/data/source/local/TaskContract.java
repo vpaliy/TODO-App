@@ -13,10 +13,6 @@ public class TaskContract {
         String CATEGORY_NAME="category_name";
     }
 
-    interface PriorityColumns {
-        String PRIORITY_ID="priority_id";
-        String PRIORITY_NAME="priority_name";
-    }
 
     interface TaskColumns{
         String TASK_ID="task_id";
@@ -24,15 +20,20 @@ public class TaskContract {
         String TASK_CATEGORY_ID="task_category_id";
         String TASK_DUE_DATE="task_due_date";
         String TASK_CYCLE_ID="task_cycle_id";
-        String TASK_PRIORITY_ID="task_priority_id";
+        String TASK_PRIORITY="task_priority";
         String TASK_IS_DONE="task_is_done";
     }
 
     interface TodoItemColumns {
         String TODO_ITEM_ID=TaskColumns.TASK_ID;
-        String TODO_ITEM_PLAN_ID="todo_item_plan_id";
     }
 
+    interface CycleColumns {
+        String CYCLE_ID="cycle_id";
+        String CYCLE_START_DATE="cycle_start_date";
+        String CYCLE_FREQUENCY="cycle_frequency";
+        String CYCLE_COUNT="cycle_count";
+    }
 
     interface GoalColumns{
         String GOAL_ID=TaskColumns.TASK_ID;
@@ -57,7 +58,6 @@ public class TaskContract {
 
     public static final String PATH_TASK="tasks";
     public static final String PATH_CATEGORY="category";
-    public static final String PATH_PRIORITY="priority";
     public static final String PATH_TASK_CYCLE="task_cycle";
     public static final String PATH_TODO_ITEM=PATH_TASK+"/"+"todo_item";
     public static final String PATH_GOAL=PATH_TASK+"/"+"goal";
@@ -85,9 +85,6 @@ public class TaskContract {
             return CONTENT_URI.buildUpon().appendPath(id).appendPath(PATH_CATEGORY).build();
         }
 
-        public static Uri buildTaskWithPriorityUri(String id){
-            return CONTENT_URI.buildUpon().appendPath(id).appendPath(PATH_PRIORITY).build();
-        }
 
         public static Uri buildTaskWithCycle(String id){
             return CONTENT_URI.buildUpon().appendPath(id).appendPath(PATH_TASK_CYCLE).build();
@@ -163,25 +160,6 @@ public class TaskContract {
         }
     }
 
-    public static class Priorities implements PriorityColumns {
-
-        public static final Uri CONTENT_URI=BASE_CONTENT_URI.buildUpon().appendPath(PATH_PRIORITY).build();
-
-        public static final String CONTENT_DIR_TYPE =
-                ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_PRIORITY;
-
-        public static final String CONTENT_ITEM_TYPE =
-                ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_PRIORITY;
-
-        public static Uri buildPriorityUri(String id){
-            return CONTENT_URI.buildUpon().appendPath(id).build();
-        }
-
-        public static String getPriority(Uri uri){
-            return Long.toString(ContentUris.parseId(uri));
-        }
-    }
-
     public static class TaskNotes implements TaskNoteColumns {
 
         public static final Uri CONTENT_URI=BASE_CONTENT_URI.buildUpon().appendPath(PATH_TASK_NOTE).build();
@@ -235,6 +213,25 @@ public class TaskContract {
         }
 
         public static String getReviewId(Uri uri){
+            return Long.toString(ContentUris.parseId(uri));
+        }
+    }
+
+    public static class Cycles implements CycleColumns {
+
+        public static final Uri CONTENT_URI=BASE_CONTENT_URI.buildUpon().appendPath(PATH_TASK_CYCLE).build();
+
+        public static final String CONTENT_DIR_TYPE =
+                ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_TASK_CYCLE;
+
+        public static final String CONTENT_ITEM_TYPE =
+                ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_TASK_CYCLE;
+
+        public static Uri buildCycleUri(String id){
+            return CONTENT_URI.buildUpon().appendPath(id).build();
+        }
+
+        public static String getCycleId(Uri uri){
             return Long.toString(ContentUris.parseId(uri));
         }
     }
