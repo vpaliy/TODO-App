@@ -6,6 +6,7 @@ import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,6 +14,7 @@ import android.support.annotation.Nullable;
 public class TaskProvider extends ContentProvider {
 
     private SQLiteOpenHelper openHelper;
+    private TaskUriEnum taskUriEnum;
 
     public TaskProvider(){
     }
@@ -25,7 +27,6 @@ public class TaskProvider extends ContentProvider {
     @Nullable
     @Override
     public String getType(@NonNull Uri uri) {
-
         return null;
     }
 
@@ -55,5 +56,6 @@ public class TaskProvider extends ContentProvider {
         }
         return false;
     }
+
 
 }
