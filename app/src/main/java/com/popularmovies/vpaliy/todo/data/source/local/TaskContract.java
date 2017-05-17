@@ -155,6 +155,10 @@ public class TaskContract {
             return CONTENT_URI.buildUpon().appendPath(id).build();
         }
 
+        public static Uri buildCategoryWithTaskUri(String id){
+            return CONTENT_URI.buildUpon().appendPath(id).appendPath(PATH_TASK).build();
+        }
+
         public static String getCategoryId(Uri uri){
             return Long.toString(ContentUris.parseId(uri));
         }
