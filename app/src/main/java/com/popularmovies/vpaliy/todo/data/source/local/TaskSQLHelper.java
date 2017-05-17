@@ -19,12 +19,10 @@ public class TaskSQLHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(TaskContract.TaskEntry.SQL_CREATE_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL(SQL_DROP_TABLE_IF_EXISTS+TaskContract.TaskEntry.TABLE_NAME);
         onCreate(db);
     }
 }
