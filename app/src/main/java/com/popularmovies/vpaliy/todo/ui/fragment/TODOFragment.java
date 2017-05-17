@@ -13,7 +13,7 @@ import android.view.View;
 import com.popularmovies.vpaliy.todo.R;
 import com.popularmovies.vpaliy.todo.di.component.DaggerViewComponent;
 import com.popularmovies.vpaliy.todo.di.module.PresenterModule;
-import com.popularmovies.vpaliy.todo.domain.model.TODOTask;
+import com.popularmovies.vpaliy.todo.domain.model.Task;
 import com.popularmovies.vpaliy.todo.mvp.contract.TODOTasksContract;
 import com.popularmovies.vpaliy.todo.mvp.contract.TODOTasksContract.Presenter;
 import com.popularmovies.vpaliy.todo.ui.TODOApp;
@@ -78,7 +78,7 @@ public class TODOFragment extends Fragment
                 @Override
                 public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
                     final int position=viewHolder.getAdapterPosition();
-                    final TODOTask removedTask=adapter.removeAt(position);
+                    final Task removedTask=adapter.removeAt(position);
                     Snackbar.make(view,R.string.emptyTaskMessage,Snackbar.LENGTH_LONG)
                             .addCallback(new BaseTransientBottomBar.BaseCallback<Snackbar>() {
                                 @Override
@@ -129,7 +129,7 @@ public class TODOFragment extends Fragment
     }
 
     @Override
-    public void showTaskList(@NonNull List<TODOTask> todoTaskList) {
+    public void showTaskList(@NonNull List<Task> todoTaskList) {
         adapter.setData(todoTaskList);
     }
 

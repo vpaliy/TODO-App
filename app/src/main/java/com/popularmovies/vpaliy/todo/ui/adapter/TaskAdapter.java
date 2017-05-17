@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.popularmovies.vpaliy.todo.R;
-import com.popularmovies.vpaliy.todo.domain.model.TODOTask;
+import com.popularmovies.vpaliy.todo.domain.model.Task;
 import com.popularmovies.vpaliy.todo.ui.eventBus.RxBus;
 import com.popularmovies.vpaliy.todo.ui.eventBus.event.ExposeDetailsEvent;
 import android.widget.TextView;
@@ -24,7 +24,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
 
     private static final String TAG=TaskAdapter.class.getSimpleName();
 
-    private List<TODOTask> taskList;
+    private List<Task> taskList;
     private LayoutInflater inflater;
     private RxBus rxBus;
 
@@ -49,12 +49,11 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         }
 
         void onBindData(){
-            taskTitle.setText(taskList.get(getAdapterPosition()).getTitle());
         }
 
         @Override
         public void onClick(View v) {
-            TODOTask task=taskList.get(getAdapterPosition());
+            Task task=taskList.get(getAdapterPosition());
             rxBus.send(new ExposeDetailsEvent(task.getTaskId()));
         }
     }
@@ -69,21 +68,21 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         holder.onBindData();
     }
 
-    public void setData(@NonNull List<TODOTask> taskList){
+    public void setData(@NonNull List<Task> taskList){
         Log.d(TAG,Integer.toString(taskList.size()));
         this.taskList=taskList;
         notifyDataSetChanged();
     }
 
-    public TODOTask removeAt(int index){
+    public Task removeAt(int index){
         if(index<0||index>=taskList.size()) return null;
-        TODOTask task=taskList.get(index);
+        Task task=taskList.get(index);
         taskList.remove(index);
         notifyItemRemoved(index);
         return task;
     }
 
-    public void addTask(int position, @NonNull TODOTask task){
+    public void addTask(int position, @NonNull Task task){
         taskList.add(position,task);
         notifyItemInserted(position);
     }

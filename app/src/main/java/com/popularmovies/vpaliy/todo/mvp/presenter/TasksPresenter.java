@@ -4,7 +4,7 @@ package com.popularmovies.vpaliy.todo.mvp.presenter;
 import com.popularmovies.vpaliy.todo.data.utils.SchedulerProvider;
 import com.popularmovies.vpaliy.todo.di.scope.UserScope;
 import com.popularmovies.vpaliy.todo.domain.IRepository;
-import com.popularmovies.vpaliy.todo.domain.model.TODOTask;
+import com.popularmovies.vpaliy.todo.domain.model.Task;
 import com.popularmovies.vpaliy.todo.mvp.contract.TODOTasksContract;
 import com.popularmovies.vpaliy.todo.mvp.contract.TODOTasksContract.View;
 import java.util.List;
@@ -58,7 +58,7 @@ public class TasksPresenter
         subscriptions.clear();
     }
 
-    private void processData(@NonNull List<TODOTask> todoTaskList){
+    private void processData(@NonNull List<Task> todoTaskList){
         Log.d(TAG,"processData()");
         if(todoTaskList.isEmpty()){
             view.showEmptyMessage();

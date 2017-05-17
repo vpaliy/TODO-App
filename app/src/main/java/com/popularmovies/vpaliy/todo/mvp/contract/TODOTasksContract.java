@@ -3,7 +3,7 @@ package com.popularmovies.vpaliy.todo.mvp.contract;
 
 import android.support.annotation.NonNull;
 
-import com.popularmovies.vpaliy.todo.domain.model.TODOTask;
+import com.popularmovies.vpaliy.todo.domain.model.Task;
 import com.popularmovies.vpaliy.todo.mvp.BasePresenter;
 import com.popularmovies.vpaliy.todo.mvp.BaseView;
 
@@ -15,7 +15,7 @@ public interface TODOTasksContract {
         void attachPresenter(@NonNull Presenter presenter);
         void showErrorMessage();
         void showEmptyMessage();
-        void showTaskList(@NonNull List<TODOTask> todoTaskList);
+        void showTaskList(@NonNull List<Task> todoTaskList);
     }
 
     interface Presenter extends BasePresenter<View> {
