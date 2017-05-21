@@ -17,6 +17,7 @@ public class TaskContract {
     interface TaskColumns{
         String TASK_ID="task_id";
         String TASK_HEADLINE="task_headline";
+        String TASK_CATEGORY="task_category";
         String TASK_CATEGORY_ID="task_category_id";
         String TASK_DUE_DATE="task_due_date";
         String TASK_CYCLE_ID="task_cycle_id";

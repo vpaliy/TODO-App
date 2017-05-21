@@ -1,18 +1,12 @@
 package com.popularmovies.vpaliy.todo.data.source.local;
 
 import android.content.ContentResolver;
-import android.content.ContentUris;
-import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.support.annotation.NonNull;
 
 import com.popularmovies.vpaliy.todo.data.source.DataSource;
 import com.popularmovies.vpaliy.todo.data.utils.SchedulerProvider;
-import com.popularmovies.vpaliy.todo.domain.model.Priority;
 import com.popularmovies.vpaliy.todo.domain.model.Task;
-
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;

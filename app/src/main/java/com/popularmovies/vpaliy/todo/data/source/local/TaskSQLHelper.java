@@ -48,13 +48,14 @@ public class TaskSQLHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE "+Tables.TASKS+" ("+
-            Tasks.TASK_ID+" INTEGER PRIMARY KEY AUTOINCREMENT,"+
-            Tasks.TASK_HEADLINE+" TEXT NOT NULL,"+
-            Tasks.TASK_DUE_DATE+" TEXT,"+
-            Tasks.TASK_IS_DONE+" INTEGER NOT NULL,"+
-            Tasks.TASK_CATEGORY_ID+" TEXT "+References.CATEGORY_ID+","+
-            Tasks.TASK_CYCLE_ID+" INTEGER "+References.CYCLE_ID+","+
-            Tasks.TASK_PRIORITY+" TEXT,"+
+                Tasks.TASK_ID+" INTEGER PRIMARY KEY AUTOINCREMENT,"+
+                Tasks.TASK_HEADLINE+" TEXT NOT NULL,"+
+                Tasks.TASK_DUE_DATE+" TEXT,"+
+                Tasks.TASK_CATEGORY+" TEXT,"+
+                Tasks.TASK_IS_DONE+" INTEGER NOT NULL,"+
+                Tasks.TASK_CATEGORY_ID+" TEXT "+References.CATEGORY_ID+","+
+                Tasks.TASK_CYCLE_ID+" INTEGER "+References.CYCLE_ID+","+
+                Tasks.TASK_PRIORITY+" TEXT,"+
                 " UNIQUE (" + Tasks.TASK_ID + ") ON CONFLICT REPLACE)");
 
         db.execSQL("CREATE TABLE "+Tables.TODO_ITEMS+" ("+
